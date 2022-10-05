@@ -152,9 +152,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Toilet2.dll" />
+    <Content Include="bin\Toilet2.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -163,8 +166,50 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Baldwin.jpg" />
+    <Content Include="images\DAVY.jpg" />
+    <Content Include="images\Jonas.jpg" />
+    <Content Include="images\Logo.png" />
+    <Content Include="images\modern-toilet-room-interior-3d-realistic-1298143915.html" />
+    <Content Include="images\Paige.jpg" />
+    <Content Include="images\toilet.jfif" />
+    <Content Include="obj\Debug\Toilet2.dll" />
+    <Content Include="obj\Debug\Toilet2.pdb" />
+    <Content Include="obj\Debug\Toilet_Crew.csproj.FileListAbsolute.txt" />
+    <Content Include="plugins\animate-css\animate.css" />
+    <Content Include="plugins\bootstrap\bootstrap.min.css" />
+    <Content Include="plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="plugins\facncybox\jquery.fancybox.css" />
+    <Content Include="plugins\facncybox\jquery.fancybox.js" />
+    <Content Include="plugins\form-validation\jquery.form.js" />
+    <Content Include="plugins\form-validation\jquery.validate.min.js" />
+    <Content Include="plugins\hover\hover-min.css" />
+    <Content Include="plugins\ionicons\fonts\ionicons.svg" />
+    <Content Include="plugins\ionicons\ionicons.min.css" />
+    <Content Include="plugins\jQurey\jquery.min.js" />
+    <Content Include="plugins\modernizr\modernizr-2.6.2.min.js" />
+    <Content Include="plugins\slick\ajax-loader.gif" />
+    <Content Include="plugins\slick\fonts\slick.svg" />
+    <Content Include="plugins\slick\slick-theme.css" />
+    <Content Include="plugins\slick\slick.css" />
+    <Content Include="plugins\slick\slick.min.js" />
+    <Content Include="plugins\slider.css" />
+    <Content Include="plugins\slider\slider.css" />
+    <Content Include="plugins\slider\slider.js" />
+    <Content Include="plugins\wow-js\wow.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="plugins\ionicons\fonts\ionicons.eot" />
+    <Content Include="plugins\ionicons\fonts\ionicons.ttf" />
+    <Content Include="plugins\ionicons\fonts\ionicons.woff" />
+    <Content Include="plugins\slick\fonts\slick.eot" />
+    <Content Include="plugins\slick\fonts\slick.ttf" />
+    <Content Include="plugins\slick\fonts\slick.woff" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Toilet2.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\Toilet_Crew.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\Toilet_Crew.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Toilet_Crew.csproj.CoreCompileInputs.cache" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -194,6 +239,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
