@@ -18,6 +18,7 @@ namespace Toilet2.Controllers
 
         public ActionResult About()
         {
+
             using (var client = new HttpClient())
             {
                 var endpoint = new Uri("https://jsonplaceholder.typicode.com/posts/1");
@@ -34,7 +35,7 @@ namespace Toilet2.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Y.";
 
             return View();
         }
