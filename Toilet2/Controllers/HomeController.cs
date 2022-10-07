@@ -18,13 +18,16 @@ namespace Toilet2.Controllers
 
         public ActionResult About()
         {
+            var txt = "";
             using (var client = new HttpClient())
+            
             {
-                var endpoint = new Uri("https://jsonplaceholder.typicode.com/posts/1");
+                var endpoint = new Uri("https://g5wdbckuah.execute-api.us-east-1.amazonaws.com/Prod/dispensers");
                 var result = client.GetAsync(endpoint).Result;
                 var json = result.Content.ReadAsStringAsync().Result;
                 ViewBag.Message = json;
             }
+
 
                 
 
@@ -34,7 +37,7 @@ namespace Toilet2.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Y.";
 
             return View();
         }
