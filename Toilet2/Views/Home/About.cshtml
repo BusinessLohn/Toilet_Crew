@@ -1,5 +1,8 @@
-﻿@{
+﻿@using Toilet2.Controllers;
+
+@{
     ViewBag.Title = "About";
+    var gereral_data = (QuickType.Item[])ViewData["Item"];
 }
 <!--
 <h2>@ViewBag.Title.</h2>
@@ -43,39 +46,45 @@
         </div>
     </section>
 
-    <table class="table">
+    <table class="table" id="example">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">id</th>
+                <th scope="col">Level</th>
+                <th scope="col">Bathroom # </th>
+                <th scope="col">Type</th>
+                <th scope="col">Time</th>
+                <th scope="col">Mac Address</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>placeholder</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>placeholder</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>placeholder</td>
-            </tr>
+
+
+
+            @{
+                foreach (QuickType.Item data in gereral_data)
+                {
+                    <tr>
+                        <th scope="row">@data.Disid</th>
+
+                        <td>@data.Level</td>
+                        <td>@data.Bathid</td>
+                        <td>@data.Distype</td>
+                        <td>@data.Update</td>
+                        <td>@data.Addr</td>
+                    </tr>
+                }
+            }
+
         </tbody>
     </table>
 
 
 
+
+
+
 </body>
 
-<h3> <b>http request example: </b> <br /> @ViewBag.Message</h3>
+<!-- Output entire data as Json String -->
+<!--  <h3> <b>http request example: </b> <br /> @ViewBag.Message</h3>  -->
