@@ -47,7 +47,7 @@ namespace Toilet2.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Y.";
+            ViewBag.Message = "Please use the following method to contact us!!!";
 
             return View();
         }
