@@ -253,3 +253,4 @@ C:\Users\XPS\Desktop\Toilet_Crew\Toilet2\bin\System.Text.Encodings.Web.xml
 C:\Users\XPS\Desktop\Toilet_Crew\Toilet2\bin\System.Text.Json.xml
 C:\Users\XPS\Desktop\Toilet_Crew\Toilet2\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\XPS\Desktop\Toilet_Crew\Toilet2\bin\System.ValueTuple.xml
+C:\Users\XPS\Desktop\Toilet_Crew\Toilet2\bin\FontAwesome.Sharp.dll

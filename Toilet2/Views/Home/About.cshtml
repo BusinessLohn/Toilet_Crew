@@ -1,9 +1,18 @@
 ﻿@using Toilet2.Controllers;
+@using FontAwesome.Sharp;
+
 
 @{
     ViewBag.Title = "About";
-    var gereral_data = (QuickType.Item[])ViewData["Item"];
+    var general_data = (QuickType.Item[])ViewData["Item"];
 }
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500" rel="stylesheet" />
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 <!--
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
@@ -46,8 +55,9 @@
         </div>
     </section>
 
-    <table class="table" id="example">
-        <thead class="thead-dark">
+
+    <table class="table responsive" id="sort">
+        <thead>
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Level</th>
@@ -62,18 +72,35 @@
 
 
             @{
-                foreach (QuickType.Item data in gereral_data)
+
+                var new_data = general_data.OrderBy(item => item.Disid);
+                foreach (QuickType.Item data in new_data)
                 {
                     <tr>
-                        <th scope="row">@data.Disid</th>
+                        <th scope="row" data-table-header="id">@data.Disid</th>
 
-                        <td>@data.Level</td>
+                        <td data-table-header="Level">@data.Level</td>
                         <td>@data.Bathid</td>
-                        <td>@data.Distype</td>
+                        @if (data.Distype == "soap")
+                        {
+
+                            <td>soap!</td>
+                        }
+                        else if (data.Distype == "towel")
+                        {
+                            <td>towel!</td>
+                        }
+                        else
+                        {
+                            <td>paper!</td>
+                        }
+
+
                         <td>@data.Update</td>
                         <td>@data.Addr</td>
                     </tr>
                 }
+
             }
 
         </tbody>
@@ -85,6 +112,20 @@
 
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src "https://cdn.datatables.net/plug-ins/1.10.15/sorting/stringMonthYear.js"></script>
+<script>
+    $(document).ready(function () {
+        $.noConflict();
+        $("#sort").DataTable({
+            columnDefs: [
+                { type: 'date', targets: [3] }
+            ],
+        });
+    });
 
+</script>
 <!-- Output entire data as Json String -->
 <!--  <h3> <b>http request example: </b> <br /> @ViewBag.Message</h3>  -->
