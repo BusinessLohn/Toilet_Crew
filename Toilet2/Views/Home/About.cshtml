@@ -56,7 +56,7 @@
     </section>
 
 
-    <table class="table responsive" id="sort">
+    <table class="table responsive" style="margin-top:20px" id="sort">
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -73,8 +73,8 @@
 
             @{
 
-                var new_data = general_data.OrderBy(item => item.Disid);
-                foreach (QuickType.Item data in new_data)
+                /*var new_data = general_data.OrderBy(item => item.Disid);*/
+                foreach (QuickType.Item data in general_data)
                 {
                     <tr>
                         <th scope="row" data-table-header="id">@data.Disid</th>
