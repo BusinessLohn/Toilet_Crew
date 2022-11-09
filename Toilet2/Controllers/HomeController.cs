@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -41,7 +42,9 @@ namespace Toilet2.Controllers
                 ViewData["Item"] = datatable;
             }
 
-            return View();
+           
+
+                return View();
         }
 
         

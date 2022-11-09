@@ -23,6 +23,9 @@ namespace QuickType
         [JsonProperty("level")]
         public int Level { get; set; }
 
+        [JsonProperty("battery_level")]
+        public int Battery { get; set; }
+
         [JsonProperty("bathroom_id")]
         public int Bathid { get; set; }
 
