@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500" rel="stylesheet" />
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 
 <!--
 <h2>@ViewBag.Title.</h2>
@@ -81,6 +82,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Level</th>
+                <th scope="col">Battery Percentage</th>
                 <th scope="col">Bathroom # </th>
                 <th scope="col">Type</th>
                 <th scope="col">Time</th>
@@ -100,23 +102,24 @@
                         <th scope="row" data-table-header="id">@data.Disid</th>
 
                         <td data-table-header="Level">@data.Level</td>
+                        <td data-table-header="Battery">@data.Battery%</td>
                         <td>@data.Bathid</td>
                         @if (data.Distype == "soap")
                         {
 
-                            <td>soap!</td>
+                            <td><i class="fa-solid fa-pump-soap"></i></td>
                         }
                         else if (data.Distype == "towel")
                         {
-                            <td>towel!</td>
+                            <td><i class="fa-solid fa-hand"></i></td>
                         }
-                        else
+                        else 
                         {
-                            <td>paper!</td>
+                            <td><i class="fa-solid fa-toilet-paper"></i></td>
                         }
 
 
-                        <td>@data.Update</td>
+                        <td>@data.Update.Substring(0,19).Replace("T", " Time: ")</td>
                         <td>@data.Addr</td>
                     </tr>
                 }
