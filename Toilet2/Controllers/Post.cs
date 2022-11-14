@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Update_devices
+namespace Create_devices
 {
     public class Post
     {
