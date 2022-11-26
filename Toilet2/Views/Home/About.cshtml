@@ -216,22 +216,22 @@
 
         <button class="open-button" onclick="openForm()">Add Dispensers</button>
 
-        <div class="form-popup" id="myForm">
+        <div class="form-popup" id="sampleForm">
             <form action="/action_page.php" class="form-container">
                 <h1></h1>
 
-                <label for="Mac Address"><b>MAC Address</b></label>
-                <input type="text" placeholder="Enter Enter Mac Address" name="Mac Address" required>
+                <label for="mac_address"><b>MAC Address</b></label>
+                <input id="mac_address"type="text" placeholder="Enter Enter Mac Address" name="Mac Address" required>
 
                
 
 
 
-                <label for="Building ID"><b>Dispenser Type</b></label>
-                <input type="text" placeholder="Enter Dispenser Type" name="Dispenser Type" required>
+                <label for="dispenser_type"><b>Dispenser Type</b></label>
+                <input id="dispenser_type "type="text" placeholder="Enter Dispenser Type" name="Dispenser Type" required>
 
-                <label for="Bathroom ID"><b>Bathroom ID</b></label>
-                <input type="text" placeholder="Enter Bathroom ID" name="Bathroom ID" required>
+                <label for="bathroom_id"><b>Bathroom ID</b></label>
+                <input id ="bathroom_id" type="text" placeholder="Enter Bathroom ID" name="Bathroom ID" required>
 
                 <button type="submit" class="btn">Create</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -240,13 +240,95 @@
 
 
         <script>
+
             function openForm() {
-                document.getElementById("myForm").style.display = "block";
+                $.noConflict();
+                document.getElementById("sampleForm").style.display = "block";
             }
 
             function closeForm() {
-                document.getElementById("myForm").style.display = "none";
+                $.noConflict();
+                document.getElementById("sampleForm").style.display = "none";
             }
+
+
+            /*--Event Listeners--*/
+            const sampleForm = document.querySelector("#sampleForm");
+            $.noConflict();
+            if (sampleForm) {
+                sampleForm.addEventListener("submit", function (e) {
+                    submitForm(e, this);
+                });
+            }
+            /*--Functions--*/
+            async function submitForm(e, form) {
+                $.noConflict();
+                // 1. Prevent reloading page
+                e.preventDefault();
+                // 2. Submit the form
+                // 2.1 User Interaction
+                const btnSubmit = document.getElementById('btnSubmit');
+                btnSubmit.disabled = true;
+                setTimeout(() => btnSubmit.disabled = false, 2000);
+                // 2.2 Build JSON body
+                const jsonFormData = buildJsonFormData(form);
+                // 2.3 Build Headers
+                const headers = buildHeaders();
+                // 2.4 Request & Response
+                const response = await fetchService.performPostHttpsRequest(`https://node-express-env.eba-8bxzmgph.us-east-1.elasticbeanstalk.com/dispensers/create?`, headers, jsonFormData); // Uses JSON Placeholder
+                console.log(response);
+                // 2.5 Inform user of result
+                if (response)
+                    window.location = `/bathroom_id=${response.bathroom_id}&Level=0&battery_level=0&mac_address=${response.mac_address}&dispenser_type=${response.dispenser_type}`;
+                else
+                    alert(`An error occured.`);
+            }
+            function buildJsonFormData(form) {
+                $.noConflict();
+                const jsonFormData = {};
+                for (const pair of new FormData(form)) {
+                    jsonFormData[pair[0]] = pair[1];
+                }
+                return jsonFormData;
+            }
+            function buildHeaders(authorization = null) {
+                $.noConflict();
+                const headers = {
+                    "Content-Type": "application/json",
+                    "Authorization": (authorization) ? authorization : "Bearer TOKEN_MISSING"
+                };
+                return headers;
+            }
+
+
+            export default class FetchService {
+                constructor() {
+
+                }
+
+
+
+            async performPostHttpsRequest(fetchLink, headers, body) {
+                if (!fetchLink || !headers || !body) {
+                    throw new Error("One or more POST request parameters was not passed.");
+                }
+                try {
+                    const rawResponse = await fetch(fetchLink, {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(body)
+                    });
+                    const content = await rawResponse.json();
+                    return content;
+                }
+                catch (err) {
+                    console.error(`Error at fetch POST: ${err}`);
+                    throw err;
+                }
+            }
+
+        }
+            
         </script>
 
 
