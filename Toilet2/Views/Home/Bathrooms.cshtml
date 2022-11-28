@@ -1,0 +1,245 @@
+﻿@using Toilet2.Controllers;
+@using FontAwesome.Sharp;
+
+
+@{
+    ViewBag.Title = "About";
+    var general_data = (QuickType.Item[])ViewData["Item"];
+}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500" rel="stylesheet" />
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+
+<!--
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+    -->
+<!--<h1 style="text-align: center;"> Watchlist</h1>
+<br>-->
+<body>
+    <section>
+        <div class="container" style="margin-bottom:80px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand">
+
+                            <img src="~/images/Logo.png" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Home", "Index", "Home")
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Tables", "About", "Home")</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <table border="0" cellspacing="5" cellpadding="5" style="margin-bottom: 10px">
+        <tbody>
+            <tr>
+                <td><b>Bathroom ID:</b></td>
+                <td><input type="text" id="Bath_ID" name="Bath_ID"></td>
+            </tr>
+
+        </tbody>
+
+        <tbody>
+            <tr>
+                <td><b>Min Level:</b></td>
+                <td><input type="text" id="min" name="min"></td>
+                <td><b>Max Level:</b></td>
+                <td><input type="text" id="max" name="max"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br />
+
+    <a href="https://forms.gle/wQaXnCX65fAzcX2r5">
+        <button>New Bathroom</button>
+    </a>
+    <a href="https://forms.gle/Ux9Ajg6oKEy1xLLJ6">
+        <button>New Building</button>
+    </a>
+    <a href="https://forms.gle/7vswdVKwem8g53yw9">
+        <button>New Dispenser</button>
+    </a>
+    <a href="https://forms.gle/tBnFjMB7s8H4fJMZ9">
+        <button>Delete Data</button>
+    </a>
+    <!--Dispenser Table-->
+    <table class="table responsive" style="margin-top:20px" id="sort">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Level</th>
+                <th scope="col">Battery Percentage</th>
+                <th scope="col">Bathroom # </th>
+                <th scope="col">Type</th>
+                <th scope="col">Time</th>
+                <th scope="col">Mac Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+            @{
+
+                /*var new_data = general_data.OrderBy(item => item.Disid);*/
+                foreach (QuickType.Item data in general_data)
+                {
+                    <tr>
+                        <th scope="row" data-table-header="id">@data.Disid</th>
+
+                        <td data-table-header="Level">@data.Level</td>
+                        <td data-table-header="Battery">@data.Battery%</td>
+                        <td>@data.Bathid</td>
+                        @if (data.Distype == "soap")
+                        {
+
+                            <td><i class="fa-solid fa-pump-soap"></i></td>
+                        }
+                        else if (data.Distype == "towel")
+                        {
+                            <td><i class="fa-solid fa-hand"></i></td>
+                        }
+                        else
+                        {
+                            <td><i class="fa-solid fa-toilet-paper"></i></td>
+                        }
+
+
+                        <td>@data.Update.Substring(0, 19).Replace("T", " Time: ")</td>
+                        <td>@data.Addr</td>
+                    </tr>
+                }
+
+            }
+
+        </tbody>
+    </table>
+
+    <!--Bathroom Tables-->
+    <table class="table responsive" style="margin-top:20px" id="sort">
+        <thead>
+            <tr>
+                <th scope="col">Building ID</th>
+                <th scope="col">Bathroom Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td data-table-header="Battery"></td>
+                <td data-table-header="Bathroom Name"></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!--Building Tables-->
+    <table class="table responsive" style="margin-top:20px" id="sort">
+        <thead>
+            <tr>
+                <th scope="col">Building Name</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td data-table-header="Building Name"></td>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src "https://cdn.datatables.net/plug-ins/1.10.15/sorting/stringMonthYear.js"></script>
+    <script>
+        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+            var min = parseInt($('#Bath_ID').val(), 10);
+            var age = parseFloat(data[2]) || 0; // use data for the age column
+
+            if (
+                (isNaN(min) && isNaN(min)) ||
+                (isNaN(min) && age <= min) ||
+                (min <= age && isNaN(min)) ||
+                (min <= age && age <= min)
+            ) {
+                return true;
+            }
+            return false;
+        });
+
+        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+            var min = parseInt($('#min').val(), 10);
+            var max = parseInt($('#max').val(), 10);
+            var age = parseFloat(data[1]) || 0; // use data for the age column
+
+            if (
+                (isNaN(min) && isNaN(max)) ||
+                (isNaN(min) && age <= max) ||
+                (min <= age && isNaN(max)) ||
+                (min <= age && age <= max)
+            ) {
+                return true;
+            }
+            return false;
+        });
+
+
+
+
+
+        /*$(document).ready(function () {
+            $.noConflict();
+            $("#sort").DataTable({
+                columnDefs: [
+                    { type: 'date', targets: [3] }
+                ],
+            });
+        });*/
+
+        $(document).ready(function () {
+            $.noConflict();
+            var table = $('#sort').DataTable();
+
+            // Event listener to the two range filtering inputs to redraw on input
+            $('#Bath_ID, #min, #max').keyup(function () {
+                table.draw();
+            });
+
+        });
+
+
+    </script>
+    <!-- Output entire data as Json String -->
+    <!--  <h3> <b>http request example: </b> <br /> @ViewBag.Message</h3>  -->

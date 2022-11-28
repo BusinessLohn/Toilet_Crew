@@ -89,5 +89,11 @@ namespace Toilet2.Controllers
         {
             
         }
+        public ActionResult Bathrooms()
+        {
+            ViewBag.Message = "Please use the following method to contact us!!!";
+
+            return View();
+        }
     }
 }
