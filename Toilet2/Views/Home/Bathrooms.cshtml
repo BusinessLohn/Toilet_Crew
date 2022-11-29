@@ -38,18 +38,18 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" @Html.ActionLink("Home", "Index" , "Home" )
+                                    <a class="nav-link" @Html.ActionLink("Home", "Index", "Home")
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" @Html.ActionLink("Dispensers", "About" , "Home" )</a>
+                                    <a class="nav-link" @Html.ActionLink("Dispensers", "About", "Home")</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" @Html.ActionLink("Buildings", "Buildings" , "Home" )</a>
+                                    <a class="nav-link" @Html.ActionLink("Buildings", "Buildings", "Home")</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" @Html.ActionLink("Bathrooms", "Bathrooms" , "Home" )</a>
+                                    <a class="nav-link" @Html.ActionLink("Bathrooms", "Bathrooms", "Home")</a>
                                 </li>
 
                             </ul>
@@ -70,29 +70,11 @@
 
         </tbody>
 
-        <tbody>
-            <tr>
-                <td><b>Min Level:</b></td>
-                <td><input type="text" id="min" name="min"></td>
-                <td><b>Max Level:</b></td>
-                <td><input type="text" id="max" name="max"></td>
-            </tr>
-
-        </tbody>
+       
     </table>
     <br />
 
-    <a href="https://forms.gle/wQaXnCX65fAzcX2r5">
-        <button>New Bathroom</button>
-    </a>
 
-    <a href=" https://forms.gle/rykTdFQvw67fBnsh6">
-        <button>Update Bathroom</button>
-    </a>
-    
-    <a href="https://forms.gle/sC7cDVG4fPHPzUbK6">
-        <button>Delete Bathroom</button>
-    </a>
     <!--Bathroom Tables-->
     <table class="table responsive" style="margin-top:20px" id="sort">
         <thead>
@@ -111,8 +93,19 @@
             </tr>
         </tbody>
     </table>
+    <div style="text-align:center">
+        <a href="https://forms.gle/wQaXnCX65fAzcX2r5">
+            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">New Bathroom</button>
+        </a>
 
+        <a href=" https://forms.gle/rykTdFQvw67fBnsh6">
+            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Update Bathroom</button>
+        </a>
 
+        <a href="https://forms.gle/sC7cDVG4fPHPzUbK6">
+            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Delete Bathroom</button>
+        </a>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
