@@ -61,21 +61,17 @@
     </section>
 
 
-    <table border="0" cellspacing="5" cellpadding="5" style="margin-bottom: 10px">
+    <table class="table table-bordered">
+
+
         <tbody>
             <tr>
-                <td><b>Bathroom ID:</b></td>
+                <td>Bathroom ID:</td>
                 <td><input type="text" id="Bath_ID" name="Bath_ID"></td>
-            </tr>
-
-        </tbody>
-
-        <tbody>
-            <tr>
-                <td><b>Min Level:</b></td>
-                <td><input type="text" id="min" name="min"></td>
-                <td><b>Max Level:</b></td>
-                <td><input type="text" id="max" name="max"></td>
+                <td>Min Level:</td>
+                <td><input class="form-control" type="text" id="min" name="min"></td>
+                <td>Max Level:</td>
+                <td><input class="form-control" type="text" id="max" name="max"></td>
             </tr>
 
         </tbody>
@@ -84,17 +80,9 @@
 
 
 
-    <a href="https://forms.gle/7vswdVKwem8g53yw9">
-        <button>New Dispenser</button>
-    </a>
-    <a href="https://forms.gle/tBnFjMB7s8H4fJMZ9">
-        <button>Delete Dispenser</button>
-    </a>
-    <a href="https://forms.gle/KKMm7dTu3zHm3bp78">
-        <button>Update Dispenser</button>
-    </a>
+
     <!--Dispenser Table-->
-    <table class="table responsive" style="margin-top:20px" id="sort">
+    <table class="table responsive"  id="sort">
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -120,34 +108,46 @@
 
                         <td data-table-header="Level">@data.Level</td>
                         <td data-table-header="Battery">@data.Battery%</td>
-                        <td>@data.Bathid</td>
+                        <td data-table-header="Bathrooms ID">@data.Bathid</td>
                         @if (data.Distype == "soap")
                         {
 
-                            <td><i class="fa-solid fa-pump-soap"></i></td>
+                            <td data-table-header="Type"><i class="fa-solid fa-pump-soap"></i></td>
                         }
                         else if (data.Distype == "towel")
                         {
-                            <td><i class="fa-solid fa-hand"></i></td>
+                            <td data-table-header="Type"><i class="fa-solid fa-hand"></i></td>
                         }
                         else
                         {
-                            <td><i class="fa-solid fa-toilet-paper"></i></td>
+                            <td data-table-header="Type"><i class="fa-solid fa-toilet-paper"></i></td>
                         }
 
 
-                        <td>@data.Update.Substring(0, 19).Replace("T", " Time: ")</td>
-                        <td>@data.Addr</td>
+                        <td data-table-header="Time">@data.Update.Substring(0, 19).Replace("T", " Time: ")</td>
+                        <td data-table-header="Mac Address">@data.Addr</td>
                     </tr>
                 }
+
 
             }
 
         </tbody>
+
     </table>
+    <div style="margin-bottom: 30px; text-align: center; color: #782f40">
+        <a href="https://forms.gle/7vswdVKwem8g53yw9">
+            <button style="background-color: #782f40; toggle"class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">New Dispenser</button>
+        </a>
+        <a href="https://forms.gle/tBnFjMB7s8H4fJMZ9">
+            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Delete Dispenser</button>
+        </a>
+        <a href="https://forms.gle/KKMm7dTu3zHm3bp78">
+            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Update Dispenser</button>
+        </a>
+    </div>
 
-
-
+    </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
