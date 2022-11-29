@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = "Bathrooms";
-    var general_data = (QuickType.Item[])ViewData["Item"];
+    var general_data = (QuickType_Bath.Bathitem[])ViewData["Bathitem"];
 }
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
@@ -64,21 +64,12 @@
     <table border="0" cellspacing="5" cellpadding="5" style="margin-bottom: 10px">
         <tbody>
             <tr>
-                <td><b>Bathroom ID:</b></td>
-                <td><input type="text" id="Bath_ID" name="Bath_ID"></td>
+                <td><b>Building ID:</b></td>
+                <td><input type="text" id="Build_ID" name="Build_ID"></td>
             </tr>
 
         </tbody>
 
-        <tbody>
-            <tr>
-                <td><b>Min Level:</b></td>
-                <td><input type="text" id="min" name="min"></td>
-                <td><b>Max Level:</b></td>
-                <td><input type="text" id="max" name="max"></td>
-            </tr>
-
-        </tbody>
     </table>
     <br />
 
@@ -97,18 +88,29 @@
     <table class="table responsive" style="margin-top:20px" id="sort">
         <thead>
             <tr>
+                <th scope="col">Bathroom ID</th>
                 <th scope="col">Building ID</th>
                 <th scope="col">Bathroom Name</th>
 
             </tr>
         </thead>
         <tbody>
+            @{
 
-            <tr>
-                <td data-table-header="Battery"></td>
-                <td data-table-header="Bathroom Name"></td>
+                //var new_data = general_data.OrderBy(item => item.build_id);
+                foreach (QuickType_Bath.Bathitem data in general_data)
+                {
+                        <tr>
+                            <td scope="row" data-table-header="bath_id">@data.bath_id</td>
 
-            </tr>
+                            <td data-table-header="build_id">@data.build_id</td>
+                            <td data-table-header="bathroom_name">@data.bathroom_name</td>
+
+                        </tr>
+                }
+
+            }
+
         </tbody>
     </table>
 
@@ -119,8 +121,8 @@
     <script src "https://cdn.datatables.net/plug-ins/1.10.15/sorting/stringMonthYear.js"></script>
     <script>
         $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-            var min = parseInt($('#Bath_ID').val(), 10);
-            var age = parseFloat(data[2]) || 0; // use data for the age column
+            var min = parseInt($('#Build_ID').val(), 10);
+            var age = parseFloat(data[1]) || 0; // use data for the age column
 
             if (
                 (isNaN(min) && isNaN(min)) ||
@@ -160,7 +162,7 @@
             var table = $('#sort').DataTable();
 
             // Event listener to the two range filtering inputs to redraw on input
-            $('#Bath_ID, #min, #max').keyup(function () {
+            $('#Build_ID, #min, #max').keyup(function () {
                 table.draw();
             });
 

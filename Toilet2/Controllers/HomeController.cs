@@ -11,6 +11,8 @@ using System.Security.Policy;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using QuickType_Build;
+using QuickType_Bath;
 
 namespace Toilet2.Controllers
 {
@@ -92,6 +94,12 @@ namespace Toilet2.Controllers
         public ActionResult Bathrooms()
         {
             ViewBag.Message = "Please use the following method to contact us!!!";
+            using (var webclient = new WebClient())
+            {
+                string jsonstring = webclient.DownloadString("http://node-express-env.eba-8bxzmgph.us-east-1.elasticbeanstalk.com/bathrooms/all");
+                var datatable = Bathitem.FromJson(jsonstring);
+                ViewData["Bathitem"] = datatable;
+            }
 
             return View();
         }
@@ -99,6 +107,13 @@ namespace Toilet2.Controllers
         public ActionResult Buildings()
         {
             ViewBag.Message = "Please use the following method to contact us!!!";
+            using (var webclient = new WebClient())
+            {
+                string jsonstring = webclient.DownloadString("http://node-express-env.eba-8bxzmgph.us-east-1.elasticbeanstalk.com/buildings/all");
+                var datatable = Builditem.FromJson(jsonstring);
+                ViewData["Builditem"] = datatable;
+            }
+
 
             return View();
         }
