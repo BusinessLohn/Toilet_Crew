@@ -3,7 +3,7 @@
 
 
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Bathrooms";
     var general_data = (QuickType.Item[])ViewData["Item"];
 }
 
@@ -43,7 +43,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" @Html.ActionLink("Tables", "About", "Home")</a>
+                                    <a class="nav-link" @Html.ActionLink("Dispensers", "About", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Buildings", "Buildings", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Bathrooms", "Bathrooms", "Home")</a>
                                 </li>
 
                             </ul>
@@ -88,59 +94,7 @@
     <a href="https://forms.gle/tBnFjMB7s8H4fJMZ9">
         <button>Delete Data</button>
     </a>
-    <!--Dispenser Table-->
-    <table class="table responsive" style="margin-top:20px" id="sort">
-        <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Level</th>
-                <th scope="col">Battery Percentage</th>
-                <th scope="col">Bathroom # </th>
-                <th scope="col">Type</th>
-                <th scope="col">Time</th>
-                <th scope="col">Mac Address</th>
-            </tr>
-        </thead>
-        <tbody>
-
-
-
-            @{
-
-                /*var new_data = general_data.OrderBy(item => item.Disid);*/
-                foreach (QuickType.Item data in general_data)
-                {
-                    <tr>
-                        <th scope="row" data-table-header="id">@data.Disid</th>
-
-                        <td data-table-header="Level">@data.Level</td>
-                        <td data-table-header="Battery">@data.Battery%</td>
-                        <td>@data.Bathid</td>
-                        @if (data.Distype == "soap")
-                        {
-
-                            <td><i class="fa-solid fa-pump-soap"></i></td>
-                        }
-                        else if (data.Distype == "towel")
-                        {
-                            <td><i class="fa-solid fa-hand"></i></td>
-                        }
-                        else
-                        {
-                            <td><i class="fa-solid fa-toilet-paper"></i></td>
-                        }
-
-
-                        <td>@data.Update.Substring(0, 19).Replace("T", " Time: ")</td>
-                        <td>@data.Addr</td>
-                    </tr>
-                }
-
-            }
-
-        </tbody>
-    </table>
-
+    
     <!--Bathroom Tables-->
     <table class="table responsive" style="margin-top:20px" id="sort">
         <thead>
@@ -159,25 +113,7 @@
             </tr>
         </tbody>
     </table>
-    <!--Building Tables-->
-    <table class="table responsive" style="margin-top:20px" id="sort">
-        <thead>
-            <tr>
-                <th scope="col">Building Name</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-
-                <td data-table-header="Building Name"></td>
-
-
-            </tr>
-        </tbody>
-    </table>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
@@ -219,14 +155,7 @@
 
 
 
-        /*$(document).ready(function () {
-            $.noConflict();
-            $("#sort").DataTable({
-                columnDefs: [
-                    { type: 'date', targets: [3] }
-                ],
-            });
-        });*/
+      
 
         $(document).ready(function () {
             $.noConflict();

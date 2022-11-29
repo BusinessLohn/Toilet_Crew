@@ -95,5 +95,12 @@ namespace Toilet2.Controllers
 
             return View();
         }
+
+        public ActionResult Buildings()
+        {
+            ViewBag.Message = "Please use the following method to contact us!!!";
+
+            return View();
+        }
     }
 }
