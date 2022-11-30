@@ -52,6 +52,7 @@
                                     <a class="nav-link" @Html.ActionLink("Bathrooms", "Bathrooms", "Home")</a>
                                 </li>
 
+
                             </ul>
                         </div>
                     </nav>
@@ -61,22 +62,16 @@
     </section>
 
 
-    <table style="margin-bottom: 10px; width:50%; padding: 10px">
-        <tbody>
-            <tr>
-                <td>Building ID:</td>
-                <td><input class="form-control" type="text" id="Build_ID" name="Build_ID"></td>
-            </tr>
-
-        </tbody>
 
 
-    </table>
+
+    <div>
+        <p1>Building ID:</p1>
+        <input style="width:15%" class="form-control" input type="text" id="Build_ID" name="Build_ID">
+    </div>
     <br />
-
-
     <!--Bathroom Tables-->
-    <table class="table responsive" style="margin-top:20px" id="sort">
+    <table class="table responsive" style="margin-top:20px;" id="sort">
         <thead>
             <tr>
                 <th scope="col">Bathroom ID</th>
@@ -91,32 +86,33 @@
                 //var new_data = general_data.OrderBy(item => item.build_id);
                 foreach (QuickType_Bath.Bathitem data in general_data)
                 {
-                        <tr>
-                            <td scope="row" data-table-header="bath_id">@data.bath_id</td>
-
-                            <td data-table-header="build_id">@data.build_id</td>
-                            <td data-table-header="bathroom_name">@data.bathroom_name</td>
-
-                        </tr>
+                    <tr>
+                        <td scope="row" data-table-header="bath_id">@data.bath_id</td>
+                        <td data-table-header="build_id">@data.build_id</td>
+                        <td data-table-header="bathroom_name">@data.bathroom_name</td>
+                    </tr>
                 }
 
             }
 
         </tbody>
     </table>
+
     <div style="text-align:center">
         <a href="https://forms.gle/wQaXnCX65fAzcX2r5">
-            <button style="background-color: #782f40" class="btn btn-primary"  aria-pressed="false" autocomplete="off">New Bathroom</button>
+            <button style="background-color: #782f40; margin-right: 15px" class="btn btn-primary" aria-pressed="false" autocomplete="off">New Bathroom</button>
         </a>
 
         <a href=" https://forms.gle/rykTdFQvw67fBnsh6">
-            <button style="background-color: #782f40" class="btn btn-primary"  aria-pressed="false" autocomplete="off">Update Bathroom</button>
+            <button style="background-color: #782f40; margin-right: 15px" class="btn btn-primary" aria-pressed="false" autocomplete="off">Update Bathroom</button>
         </a>
 
         <a href="https://forms.gle/sC7cDVG4fPHPzUbK6">
-            <button style="background-color: #782f40" class="btn btn-primary"  aria-pressed="false" autocomplete="off">Delete Bathroom</button>
+            <button style="background-color: #782f40; margin-right: 15px" class="btn btn-primary" aria-pressed="false" autocomplete="off">Delete Bathroom</button>
+
         </a>
     </div>
+</body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
