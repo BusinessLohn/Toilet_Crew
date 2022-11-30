@@ -1,12 +1,12 @@
 ﻿@using Toilet2.Controllers;
 @using FontAwesome.Sharp;
 
-
+<!DOCTYPE html>
 @{
     ViewBag.Title = "About";
     var general_data = (QuickType.Item[])ViewData["Item"];
 }
-
+<html>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500" rel="stylesheet" />
@@ -20,6 +20,41 @@
     -->
 <!--<h1 style="text-align: center;"> Watchlist</h1>
 <br>-->
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="favicon.ico">
+    <title>Timer Agency Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Template CSS Files
+    ================================================== -->
+    <!-- Twitter Bootstrs CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- Ionicons Fonts Css -->
+    <link rel="stylesheet" href="plugins/ionicons/ionicons.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <!-- Hero area slider css-->
+    <link rel="stylesheet" href="plugins/slider/slider.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="plugins/facncybox/jquery.fancybox.css">
+    <!-- hover -->
+    <link rel="stylesheet" href="plugins/hover/hover-min.css">
+    <!-- template main css file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
     <section>
         <div class="container" style="margin-bottom:80px">
@@ -27,7 +62,6 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand">
-
                             <img src="~/images/Logo.png" />
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -60,29 +94,28 @@
         </div>
     </section>
 
+    <div style="width:100%">
+        <table class="table table-bordered" style="">
+            <tbody>
+                <tr>
+                    <td>Bathroom ID:</td>
+                    <td><input class="form-control" type="text" id="Bath_ID" name="Bath_ID"></td>
+                    <td>Min Level:</td>
+                    <td><input class="form-control" type="text" id="min" name="min"></td>
+                    <td>Max Level:</td>
+                    <td><input class="form-control" type="text" id="max" name="max"></td>
+                </tr>
 
-    <table class="table table-bordered">
-
-
-        <tbody>
-            <tr>
-                <td>Bathroom ID:</td>
-                <td><input type="text" id="Bath_ID" name="Bath_ID"></td>
-                <td>Min Level:</td>
-                <td><input class="form-control" type="text" id="min" name="min"></td>
-                <td>Max Level:</td>
-                <td><input class="form-control" type="text" id="max" name="max"></td>
-            </tr>
-
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
     <br />
 
 
 
 
     <!--Dispenser Table-->
-    <table class="table responsive"  id="sort">
+    <table class="table responsive" id="sort">
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -109,19 +142,8 @@
                         <td data-table-header="Level">@data.Level</td>
                         <td data-table-header="Battery">@data.Battery%</td>
                         <td data-table-header="Bathrooms ID">@data.Bathid</td>
-                        @if (data.Distype == "soap")
-                        {
+                        <td data-table-header="Type">@data.Distype</td>
 
-                            <td data-table-header="Type"><i class="fa-solid fa-pump-soap"></i></td>
-                        }
-                        else if (data.Distype == "towel")
-                        {
-                            <td data-table-header="Type"><i class="fa-solid fa-hand"></i></td>
-                        }
-                        else
-                        {
-                            <td data-table-header="Type"><i class="fa-solid fa-toilet-paper"></i></td>
-                        }
 
 
                         <td data-table-header="Time">@data.Update.Substring(0, 19).Replace("T", " Time: ")</td>
@@ -137,17 +159,18 @@
     </table>
     <div style="margin-bottom: 30px; text-align: center; color: #782f40">
         <a href="https://forms.gle/7vswdVKwem8g53yw9">
-            <button style="background-color: #782f40; toggle"class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">New Dispenser</button>
+            <button style="background-color: #782f40; margin-right: 15px" class="btn btn-primary"  aria-pressed="false" autocomplete="off">New Dispenser</button>
         </a>
         <a href="https://forms.gle/tBnFjMB7s8H4fJMZ9">
-            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Delete Dispenser</button>
+            <button style="background-color: #782f40; margin-right:15px" class="btn btn-primary" aria-pressed="false" autocomplete="off">Delete Dispenser</button>
         </a>
         <a href="https://forms.gle/KKMm7dTu3zHm3bp78">
-            <button style="background-color: #782f40" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Update Dispenser</button>
+            <button style="background-color: #782f40; margin-right: 15px" class="btn btn-primary"  aria-pressed="false" autocomplete="off">Update Dispenser</button>
         </a>
     </div>
 
-    </body>
+</body>
+</html>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
